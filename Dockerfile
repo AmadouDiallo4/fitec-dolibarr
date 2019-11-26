@@ -29,7 +29,10 @@ RUN unzip /usr/src/dolibarr.zip -d /usr/src/ \
 	&& chown -R www-data:www-data /var/www/html/ \
 	&& chmod -R 755 /var/www/html/
 
-RUN touch /var/www/html/htdocs/conf/conf.php \
-	&& chown www-data /var/www/html/htdocs/conf/conf.php
 
 RUN sed -i 's|DocumentRoot.*|DocumentRoot /var/www/html/htdocs|' /etc/apache2/sites-enabled/000-default.conf
+
+
+CMD touch /var/www/html/htdocs/conf/conf.php \
+ && chown www-data /var/www/html/htdocs/conf/conf.php \
+ && apache2-foreground
