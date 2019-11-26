@@ -3,7 +3,7 @@ version: "3"
 services:
 
   app:
-    image: dolibarr:1.1
+    image: schneidera/dolibarr:1.2
     networks:
       - dolibarr_net
     environment:
